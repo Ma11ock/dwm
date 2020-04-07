@@ -1,0 +1,3 @@
+[Desktop Entry]
+Name=dwm
+Exec=/usr/share/xsessions/dwminit.sh

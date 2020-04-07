@@ -43,6 +43,8 @@ install: all
 	mkdir -p ${DESTDIR}${PREFIX}/share/dwm
 	cp -f larbs.mom ${DESTDIR}${PREFIX}/share/dwm
 	chmod 644 ${DESTDIR}${PREFIX}/share/dwm/larbs.mom
+	cp -f dwm.desktop /usr/share/xsessions/dwm.desktop
+	cp -f dwminit.sh /usr/share/xsessions/dwminit.sh
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
