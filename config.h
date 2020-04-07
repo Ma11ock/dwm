@@ -114,7 +114,7 @@ static Key keys[] = {
 
 	{ MODKEY,			XK_Tab,		view,		{0} },
 	/* { MODKEY|ShiftMask,		XK_Tab,		spawn,		SHCMD("") }, */
-	{ MODKEY,			XK_q,		killclient,	{0} },
+	{ MODKEY|ShiftMask,			XK_q,		killclient,	{0} },
 	/* { MODKEY|ShiftMask,		XK_q,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_w,		spawn,		SHCMD("$BROWSER") },
 	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD("st -e sudo nmtui") },
@@ -150,7 +150,7 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,		XK_a,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_s,		togglesticky,	{0} },
 	/* { MODKEY|ShiftMask,		XK_s,		spawn,		SHCMD("") }, */
-	{ MODKEY,			XK_x,		spawn,          {.v = dmenucmd } },
+	{ MODKEY,			XK_d,		spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,		XK_d,		togglegaps,	{0} },
 	{ MODKEY,			XK_f,		togglefullscr,	{0} },
 	/* { MODKEY|ShiftMask,		XK_f,		togglefullscr,	{0} }, */
