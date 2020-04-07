@@ -12,11 +12,14 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
-static const char *fonts[]          = { "monospace:size=10", "JoyPixels:pixelsize=10:antialias=true:autohint=true"  };
-static char dmenufont[]       = "monospace:size=10";
-static char normbgcolor[]           = "#222222";
-static char normbordercolor[]       = "#444444";
-static char normfgcolor[]           = "#bbbbbb";
+static const char *fonts[]          = { "Ubuntu Mono:size=12", "JoyPixels:pixelsize=12:antialias=true:autohint=true"  };
+static char dmenufont[]       = "Ubuntu Mono:size=12";
+//static char normbgcolor[]           = "#222222";
+static char normbgcolor[]           = "#282a36";
+//static char normbordercolor[]       = "#444444";
+static char normbordercolor[]       = "#6272a4";
+//static char normfgcolor[]           = "#bbbbbb";
+static char normfgcolor[]           = "#f8f8f2";
 static char selfgcolor[]            = "#eeeeee";
 static char selbordercolor[]        = "#005577";
 static char selbgcolor[]            = "#005577";
@@ -27,7 +30,8 @@ static char *colors[][3] = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+//static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "🌐", "📝", "👽", "📁", "📆", "💾", "🎮", "🙊", "💻" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -36,7 +40,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       1 << 8,            0,           -1 },
-	/* { "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 }, */
+	{ "Firefox",  NULL,       NULL,       1 << 8,            0,           -1 },
 };
 
 /* layout(s) */
@@ -114,17 +118,16 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,		XK_q,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_w,		spawn,		SHCMD("$BROWSER") },
 	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD("st -e sudo nmtui") },
-	{ MODKEY,			XK_e,		spawn,		SHCMD("st -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") },
 	{ MODKEY|ShiftMask,		XK_e,		spawn,		SHCMD("tutorialvids") },
 	{ MODKEY,			XK_r,		spawn,		SHCMD("st -e lf") },
 	/* { MODKEY|ShiftMask,		XK_r,		spawn,		SHCMD("") }, */
-	{ MODKEY,			XK_t,		setlayout,	{.v = &layouts[0]} },
+	{ MODKEY,			XK_s,		setlayout,	{.v = &layouts[0]} },
 	/* { MODKEY|ShiftMask,		XK_t,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_y,		setlayout,	{.v = &layouts[4]} },
 	/* { MODKEY|ShiftMask,		XK_y,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_u,		setlayout,	{.v = &layouts[2]} },
 	/* { MODKEY|ShiftMask,		XK_u,		spawn,		SHCMD("") }, */
-	{ MODKEY,			XK_i,		setlayout,	{.v = &layouts[3]} },
+	//{ MODKEY,			XK_i,		setlayout,	{.v = &layouts[3]} },
 	/* { MODKEY|ShiftMask,		XK_i,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_o,		incnmaster,     {.i = +1 } },
 	{ MODKEY|ShiftMask,		XK_o,		incnmaster,     {.i = -1 } },
@@ -138,10 +141,16 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,		XK_backslash,		spawn,		SHCMD("") }, */
 
 	{ MODKEY,			XK_a,		spawn,		SHCMD("st -e lmc control") },
+
+    { MODKEY,			XK_l,		spawn,		SHCMD("mpc prev") },
+    { MODKEY,			XK_n,		spawn,		SHCMD("mpc next") },
+
+    { MODKEY,			XK_t,		spawn,		SHCMD("emacsclient -c") },
+    { MODKEY,			XK_e,		spawn,		SHCMD("thunar") }, // ik ik
 	/* { MODKEY|ShiftMask,		XK_a,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_s,		togglesticky,	{0} },
 	/* { MODKEY|ShiftMask,		XK_s,		spawn,		SHCMD("") }, */
-	{ MODKEY,			XK_d,		spawn,          {.v = dmenucmd } },
+	{ MODKEY,			XK_x,		spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,		XK_d,		togglegaps,	{0} },
 	{ MODKEY,			XK_f,		togglefullscr,	{0} },
 	/* { MODKEY|ShiftMask,		XK_f,		togglefullscr,	{0} }, */
@@ -149,7 +158,6 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,		XK_g,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_h,		setmfact,	{.f = -0.05} },
 	/* J and K are automatically bound above in STACKEYS */
-	{ MODKEY,			XK_l,		setmfact,      	{.f = +0.05} },
 	{ MODKEY,			XK_semicolon,	shiftview,	{ .i = 1 } },
 	/* { MODKEY|ShiftMask,		XK_semicolon,	shiftview,	SHCMD("") }, */
 	/* { MODKEY,			XK_apostrophe,	spawn,		SHCMD("") }, */
@@ -158,23 +166,18 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_Return,	togglescratch,	{.v = scratchpadcmd } },
 
 	{ MODKEY,			XK_z,		incrgaps,	{.i = +1 } },
-	{ MODKEY|ShiftMask,		XK_z,		incrgaps,	{.i = -1 } },
-	{ MODKEY,			XK_x,		spawn,		SHCMD("slock & xset dpms force off; mpc pause ; pauseallmpv") },
+	{ MODKEY|ShiftMask,	XK_z,		incrgaps,	{.i = -1 } },
+	//{ MODKEY,			XK_x,		spawn,		SHCMD("") },
+    //{ MODKEY,			XK_x,		spawn,		SHCMD("slock & xset dpms force off; mpc pause ; pauseallmpv") },
 	{ MODKEY|ShiftMask,		XK_x,		spawn,		SHCMD("[ \"$(printf \"No\\nYes\" | dmenu -i -nb darkred -sb red -sf white -nf gray -p \"Shutdown computer?\")\" = Yes ] && sudo -A shutdown -h now") },
 	/* { MODKEY,			XK_c,		spawn,		SHCMD("") }, */
 	{ MODKEY|ShiftMask,		XK_c,		spawn,		SHCMD("mpv --no-cache --no-osc --no-input-default-bindings --input-conf=/dev/null --title=mpvfloat $(ls /dev/video[0,2,4,6,8] | tail -n 1)") },
 	{ MODKEY,			XK_v,		spawn,		SHCMD("st -e $EDITOR -c \"VimwikiIndex\"") },
-	{ MODKEY|ShiftMask,		XK_v,		spawn,		SHCMD("{ killall xcompmgr || setsid xcompmgr & } ; xwallpaper --zoom ~/.config/wall.png") },
 	{ MODKEY,			XK_b,		togglebar,	{0} },
 	{ MODKEY|ShiftMask,		XK_b,		spawn,		SHCMD("hover left") },
-	{ MODKEY,			XK_n,		spawn,		SHCMD("st -e newsboat; pkill -RTMIN+6 dwmblocks") },
 	{ MODKEY|ShiftMask,		XK_n,		spawn,		SHCMD("hover right") },
 	{ MODKEY,			XK_m,		spawn,		SHCMD("st -e ncmpcpp") },
 	{ MODKEY|ShiftMask,		XK_m,		spawn,		SHCMD("lmc toggle") },
-	{ MODKEY,			XK_comma,	spawn,		SHCMD("mpc prev") },
-	{ MODKEY|ShiftMask,		XK_comma,	spawn,		SHCMD("mpc seek 0%") },
-	{ MODKEY,			XK_period,	spawn,		SHCMD("mpc next") },
-	{ MODKEY|ShiftMask,		XK_period,	spawn,		SHCMD("mpc repeat") },
 
 	{ MODKEY,			XK_Page_Up,	shiftview,	{ .i = -1 } },
 	{ MODKEY,			XK_Page_Down,	shiftview,	{ .i = 1 } },
@@ -202,16 +205,16 @@ static Key keys[] = {
 	{ MODKEY,			XK_Delete,	spawn,		SHCMD("dmenurecord kill") },
 	{ MODKEY,			XK_Scroll_Lock,	spawn,		SHCMD("killall screenkey || screenkey &") },
 
-	{ 0, XF86XK_AudioMute,		spawn,		SHCMD("lmc toggle") },
-	{ 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("lmc up") },
-	{ 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("lmc down") },
-	{ 0, XF86XK_AudioPrev,		spawn,		SHCMD("mpc prev") },
-	{ 0, XF86XK_AudioNext,		spawn,		SHCMD("mpc next") },
-	{ 0, XF86XK_AudioPause,		spawn,		SHCMD("mpc pause") },
-	{ 0, XF86XK_AudioPlay,		spawn,		SHCMD("mpc play") },
-	{ 0, XF86XK_AudioStop,		spawn,		SHCMD("mpc stop") },
-	{ 0, XF86XK_AudioRewind,	spawn,		SHCMD("mpc seek -10") },
-	{ 0, XF86XK_AudioForward,	spawn,		SHCMD("mpc seek +10") },
+	{ 0, XF86XK_AudioMute,		spawn,		    SHCMD("pactl set-sink-mute 0 toggle; pkill -f 'sh /home/rmj/src/scripts/ryansleep.sh'") },
+	{ 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("pactl set-sink-volume 0 +5%;  pkill -f 'sh /home/rmj/src/scripts/ryansleep.sh'") },
+	{ 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("pactl set-sink-volume 0 -5%;  pkill -f 'sh /home/rmj/src/scripts/ryansleep.sh'") },
+	{ 0, XF86XK_AudioPrev,		spawn,		SHCMD("mpc prev; pkill -f 'sh /home/rmj/src/scripts/ryansleep.sh'") },
+	{ 0, XF86XK_AudioNext,		spawn,		SHCMD("mpc next; pkill -f 'sh /home/rmj/src/scripts/ryansleep.sh'") },
+	{ 0, XF86XK_AudioPause,		spawn,		SHCMD("mpc pause; pkill -f 'sh /home/rmj/src/scripts/ryansleep.sh'") },
+	{ 0, XF86XK_AudioPlay,		spawn,		SHCMD("mpc play; pkill -f 'sh /home/rmj/src/scripts/ryansleep.sh'") },
+	{ 0, XF86XK_AudioStop,		spawn,		SHCMD("mpc stop; pkill -f 'sh /home/rmj/src/scripts/ryansleep.sh'") },
+	{ 0, XF86XK_AudioRewind,	spawn,		SHCMD("mpc seek -10; pkill -f 'sh /home/rmj/src/scripts/ryansleep.sh'") },
+	{ 0, XF86XK_AudioForward,	spawn,		SHCMD("mpc seek +10; pkill -f 'sh /home/rmj/src/scripts/ryansleep.sh'") }, 
 	{ 0, XF86XK_AudioMedia,		spawn,		SHCMD("st -e ncmpcpp") },
 	{ 0, XF86XK_PowerOff,		spawn,		SHCMD("[ \"$(printf \"No\\nYes\" | dmenu -i -nb darkred -sb red -sf white -nf gray -p \"Shutdown computer?\")\" = Yes ] && sudo -A shutdown -h now") },
 	{ 0, XF86XK_Calculator,		spawn,		SHCMD("st -e bc -l") },

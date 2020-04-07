@@ -1,0 +1,3 @@
+* Installation
+add init script
+mention scripts like ryansleep in readme

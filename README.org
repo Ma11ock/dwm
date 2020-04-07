@@ -1,0 +1,12 @@
+#+TITLE: Ryan's dwm config
+#+AUTHOR: Ryan
+#+EMAIL: pwishie@gmail.com
+#+OPTIONS: num:nil
+
+Here is my dwm build optimzed for Emacs.
+
+It is a [[https://github.com/LukeSmithxyz/dwm][fork of Luke Smith's dwm config]] so all of his patches and other details also apply, except for the keybindings.
+
+
+* Remember to install [[https://aur.archlinux.org/packages/libxft-bgra/][`libxft-bgra`]]
+...unless you want dwm to crash every time in encounters an emoji.
