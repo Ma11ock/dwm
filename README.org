@@ -7,6 +7,16 @@ Here is my dwm build optimzed for Emacs.
 
 It is a [[https://github.com/LukeSmithxyz/dwm][fork of Luke Smith's dwm config]] so all of his patches (up to the version that was forked) and other details also apply, except for the keybindings.
 
+* Installation for newbs
+#+BEGIN_SRC shell
+make && sudo make install && make clean
+#+END_SRC
 
-* Remember to install [[https://aur.archlinux.org/packages/libxft-bgra/][`libxft-bgra`]]
+This fork also puts a dwm.desktop file in 
+#+BEGIN_SRC 
+/usr/share/xsessions/ 
+#+END_SRC
+so a desktop manager such as lightdm will be able to boot into dwm.
+
+* Remember to install [[https://aur.archlinux.org/packages/libxft-bgra/][:libxft-bgra]]
 ...unless you want dwm to crash every time it encounters an emoji.
