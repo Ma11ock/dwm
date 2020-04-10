@@ -13,7 +13,7 @@ chmod +x setup.sh
 ./setup.sh && make && sudo make install && make clean
 #+END_SRC
 
-This fork also puts a dwm.desktop file in ~/usr/share/xsessions/~.
+This fork also puts a dwm.desktop file in ~/usr/share/xsessions/~
 so a desktop manager such as ~lightdm~ will be able to boot into ~dwm~.
 
 This fork also installs the bar customizations script, which is also placed in ~/usr/share/xsessions/~.
@@ -23,5 +23,10 @@ The ~dwminit.sh~ file assumes ~compton~ as the compositing window manager, you m
 
 You should set your wallpaper, also in dwminit.sh.
 
-* Remember to install [[https://aur.archlinux.org/packages/libxft-bgra/][=libxft-bgra=]]
+* Remember to install [[https://aur.archlinux.org/packages/libxft-bgra/][libxft-bgra]]
 ...unless you want ~dwm~ to crash every time it encounters an emoji.
+
+* How the bar works
+~dwm~'s default bar is updated by running ~xsetroot -name "string"~. The update script refreshes the bar
+every 20 seconds (or however many seconds is in ~ryansleep.sh~). When a time sensitive action occurs, it
+kills the ~ryansleep.sh~ process, allowing the bar to update instantly.
