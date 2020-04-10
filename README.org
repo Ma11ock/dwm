@@ -17,7 +17,7 @@ This fork also puts a dwm.desktop file in ~/usr/share/xsessions/~.
 so a desktop manager such as ~lightdm~ will be able to boot into ~dwm~.
 
 This fork also installs the bar customizations script, which is also placed in ~/usr/share/xsessions/~.
-. It relies on the scripts ~dwmbar.sh~ and ~ryansleep.sh~ which it assumes is in ~\~/src/dwm/~.
+. It relies on the scripts ~dwmbar.sh~ and ~ryansleep.sh~ which it assumes is in ~$HOME/src/dwm/~.
 ** 
 The ~dwminit.sh~ file assumes ~compton~ as the compositing window manager, you might want to change this.
 
