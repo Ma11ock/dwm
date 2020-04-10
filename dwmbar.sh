@@ -85,5 +85,5 @@ get_ssid() {
 while true; do
     xsetroot -name " $(get_song) | $(get_volume) | $(get_ssid) | $(get_used_mem)  | $(get_cpu_usage) | $(get_cpu_temp)  | $(get_battery) | 📅 $(date +"%a, %b %d - %I:%M %p") | $(whoami)"
     
-    $HOME/src/dwm/ryansleep.sh
+    <++>/src/dwm/ryansleep.sh
 done

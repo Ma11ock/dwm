@@ -9,8 +9,8 @@ It is a [[https://github.com/LukeSmithxyz/dwm][fork of Luke Smith's dwm config]]
 
 * Installation
 #+BEGIN_SRC shell
-chmod +x setup.sh
-./setup.sh && make && sudo make install && make clean
+chmod +x setup
+./setup && make && sudo make install && make clean
 #+END_SRC
 
 This fork also puts a dwm.desktop file in ~/usr/share/xsessions/~
