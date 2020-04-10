@@ -39,8 +39,11 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       1 << 8,            0,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,            0,           -1 },
+	{ "Gimp",     NULL,       NULL,       1 << 7,            0,           -1 },
+	{ "firefox",  NULL,       NULL,       1 << 1,            0,           -1 },
+    { "discord",  NULL,       NULL,       1 << 4,            0,           -1 }, // ik ik
+    { "Godot",    NULL,       NULL,       1 << 7,            0,            1 }, // ik ik
+    { "Steam",    NULL,       NULL,       1 << 8,            0,            1 }, // ik ik
 };
 
 /* layout(s) */
@@ -69,6 +72,8 @@ static const Layout layouts[] = {
 #define STACKKEYS(MOD,ACTION) \
 	{ MOD,	XK_j,	ACTION##stack,	{.i = INC(+1) } }, \
 	{ MOD,	XK_k,	ACTION##stack,	{.i = INC(-1) } }, \
+    { MOD,	XK_j,	ACTION##stack,	{.i = INC(+1) } }, \
+	{ MOD,	XK_k,	ACTION##stack,	{.i = INC(-1) } }, \    
 	/* { MOD, XK_grave, ACTION##stack, {.i = PREVSEL } }, \ */
 	/* { MOD, XK_q,     ACTION##stack, {.i = 0 } }, \ */
 	/* { MOD, XK_a,     ACTION##stack, {.i = 1 } }, \ */
@@ -127,7 +132,7 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,		XK_y,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_u,		setlayout,	{.v = &layouts[2]} },
 	/* { MODKEY|ShiftMask,		XK_u,		spawn,		SHCMD("") }, */
-	//{ MODKEY,			XK_i,		setlayout,	{.v = &layouts[3]} },
+	{ MODKEY,			XK_f,		setlayout,	{.v = &layouts[3]} },
 	/* { MODKEY|ShiftMask,		XK_i,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_o,		incnmaster,     {.i = +1 } },
 	{ MODKEY|ShiftMask,		XK_o,		incnmaster,     {.i = -1 } },
