@@ -7,16 +7,24 @@ Here is my dwm build optimzed for Emacs.
 
 It is a [[https://github.com/LukeSmithxyz/dwm][fork of Luke Smith's dwm config]] so all of his patches (up to the version that was forked) and other details also apply, except for the keybindings.
 
-* Installation for newbs
+* Installation
 #+BEGIN_SRC shell
-make && sudo make install && make clean
+chmod +x setup.sh
+./setup.sh && make && sudo make install && make clean
 #+END_SRC
 
-This fork also puts a dwm.desktop file in 
-#+BEGIN_SRC 
-/usr/share/xsessions/ 
-#+END_SRC
+This fork also puts a dwm.desktop file in  #+BEGIN_SRC  /usr/share/xsessions/ #+END_SRC
 so a desktop manager such as lightdm will be able to boot into dwm.
 
-* Remember to install [[https://aur.archlinux.org/packages/libxft-bgra/][:libxft-bgra]]
+This fork also installs the bar customizations script, which is also placed in
+ #+BEGIN_SRC
+  /usr/share/xsessions/
+ #+END_SRC
+. It relies on the scripts "dwmbar.sh" and "ryansleep.sh" which it assumes is in ~/src/dwm/.
+** 
+The dwminit.sh file assumes compton as the compositing window manager, you might want to change this.
+
+You should set your wallpaper, also in dwminit.sh.
+
+* Remember to install :[[https://aur.archlinux.org/packages/libxft-bgra/][libxft-bgra]]:
 ...unless you want dwm to crash every time it encounters an emoji.

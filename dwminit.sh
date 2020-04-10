@@ -1,8 +1,10 @@
 #!/usr/bin/env sh
 
-xwallpaper --zoom /home/rmj/Pictures/wallpapers/Gnu_wallpaper.png
-compton -b
+# Ryan's dwm init script
 
-/home/rmj/src/scripts/dwmbar.sh &
+xwallpaper --zoom <-->
+compton -b # You might want to change this line
+
+<++>/src/dwm/dwmbar.sh &
 
 exec dwm
