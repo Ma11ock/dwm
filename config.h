@@ -31,8 +31,10 @@ static char *colors[][3] = {
 
 /* tagging */
 //static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-static const char *tags[] = { "🌐", "📝", "👽", "📁", "📆", "💾", "🎮", "🙊", "💻" };
+static const char *tags[] = { "🌐", "📝", "👽", "📁", "🎤", "💾", "🎮", "🙊", "💻" };
 
+
+// NOTE: to find the class name of an Xorg program use xprop
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -40,7 +42,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       1 << 7,            0,           -1 },
-	{ "firefox",  NULL,       NULL,       1 << 1,            0,           -1 },
+	{ "firefox",  NULL,       NULL,       1,                 0,           -1 },
     { "discord",  NULL,       NULL,       1 << 4,            0,           -1 }, // ik ik
     { "Godot",    NULL,       NULL,       1 << 7,            0,            1 }, // ik ik
     { "Steam",    NULL,       NULL,       1 << 8,            0,            1 }, // ik ik
