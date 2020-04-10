@@ -17,11 +17,11 @@ This fork also puts a dwm.desktop file in ~/usr/share/xsessions/~.
 so a desktop manager such as ~lightdm~ will be able to boot into ~dwm~.
 
 This fork also installs the bar customizations script, which is also placed in ~/usr/share/xsessions/~.
-. It relies on the scripts ~dwmbar.sh~ and ~ryansleep.sh~ which it assumes is in ~$HOME/src/dwm/~.
-** 
+It relies on the scripts ~dwmbar.sh~ and ~ryansleep.sh~ which it assumes is in ~$HOME/src/dwm/~.
+** Customization
 The ~dwminit.sh~ file assumes ~compton~ as the compositing window manager, you might want to change this.
 
 You should set your wallpaper, also in dwminit.sh.
 
-* Remember to install [[https://aur.archlinux.org/packages/libxft-bgra/][~libxft-bgra~]]
+* Remember to install [[https://aur.archlinux.org/packages/libxft-bgra/][=libxft-bgra=]]
 ...unless you want ~dwm~ to crash every time it encounters an emoji.
